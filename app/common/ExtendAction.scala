@@ -4,15 +4,14 @@ import java.util.concurrent.TimeUnit
 
 import com.google.common.base.Stopwatch
 import com.typesafe.scalalogging.LazyLogging
+import common.AnalyticRequest
 import play.api.mvc._
 
 import scala.concurrent.Future
 
-case class AnalyticRequest[A](request: Request[A], userid: Option[String]) extends WrappedRequest[A](request)
-
 trait ExtendAction extends LazyLogging {
 
-  def AnalyticAction = new ActionBuilder[AnalyticRequest] {
+  def Measurement = new ActionBuilder[AnalyticRequest] {
     override def invokeBlock[A](request: Request[A]
                                 , block: (AnalyticRequest[A]) => Future[Result]) = processTime(request) {
       request.session.get("userid").map { id =>
