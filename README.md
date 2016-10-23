@@ -2,7 +2,8 @@
 ```
 # psql -Upostgres
 postgres=# create user bigbears;
-postgres=# create database shop;
+postgres=# alter role bigbears set password='bigbears';
+postgres=# create database gst;
 ```
 
 # INITIAL DB
@@ -11,18 +12,18 @@ postgres=# create database shop;
 if [[ ! -n $REIMPORTDB_PATH  ]]; then
 export REIMPORTDB_PATH=/usr/local/bin/
 fi
-${REIMPORTDB_PATH}dropdb --if-exists shop
-${REIMPORTDB_PATH}createdb shop
+${REIMPORTDB_PATH}dropdb --if-exists gst
+${REIMPORTDB_PATH}createdb gst
 ${REIMPORTDB_PATH}psql shop < schema.sql
 ```
 
 # RUN
 ```
-kill -9 $(cat bearshop/release/RUNNING_PID)
-rm -rf bearshop/release
+kill -9 $(cat bearbot/release/RUNNING_PID)
+rm -rf bearbot/release
 unzip bearshop/release.zip -d bearshop
-bearshop/release/bin/bearshop -Dconfig.file=/home/ubuntu/bearshop/application.conf \
-    -Dlogger.file=/home/ubuntu/bearshop/production.xml \
+bearbot/release/bin/bearbot -Dconfig.file=/home/ubuntu/bearbot/application.conf \
+    -Dlogger.file=/home/ubuntu/bearbot/production.xml \
     -Djava.net.preferIPv4Stack=true \
     & disown
 ```
