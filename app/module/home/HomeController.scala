@@ -12,7 +12,7 @@ class HomeController @Inject()() extends Controller
   with LazyLogging {
 
   def www = Measurement { implicit request =>
-    Ok("")
+    Ok(views.html.home())
   }
 
 }
