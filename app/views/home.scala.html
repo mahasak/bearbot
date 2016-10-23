@@ -1,4 +1,5 @@
 @import helper._
+@(scenarios: List[entity.ScenarioEntity])
 @layout.main("BearBot : Dashboard") {
     <div class="container container-spacious">
         <div class="dashhead m-t-md">
@@ -33,62 +34,22 @@
             </div>
             <div class="col-sm-6 col-md-3 m-b">
                 <div class="list-group">
+                    @for(scenario <- scenarios){
                     <a class="list-group-item" style="background-color: #1bc98e;
                         color: black;" href="#"><span class="pull-right text-muted" style="color: black">✓</span>
-                        Scenario 1
+                        scenario.name
                     </a>
-                    <a class="list-group-item" style="background-color: #e64759;
-                        color: black;" href="#"><span class="pull-right text-muted" style="color: black">✓</span>
-                        Scenario 2
-                    </a>
-                    <a class="list-group-item" style="background-color: #1bc98e;
-                        color: black" href="#"><span class="pull-right text-muted" style="color: black">✓</span>
-                        Scenario 3
-                    </a>
-                    <a class="list-group-item" href="#"><span class="pull-right text-muted"></span>
-                        Scenario 4
-                    </a>
-                    <a class="list-group-item" href="#"><span class="pull-right text-muted"></span>
-                        Scenario 5
-                    </a>
+                    }
                 </div>
             </div>
             <div class="col-sm-6 col-md-3 m-b">
                 <div class="list-group">
-                    <a class="list-group-item" href="#"><span class="pull-right text-muted"></span>
-                        Scenario 1
-                    </a>
-                    <a class="list-group-item" href="#"><span class="pull-right text-muted"></span>
-                        Scenario 2
-                    </a>
-                    <a class="list-group-item" href="#"><span class="pull-right text-muted"></span>
-                        Scenario 3
-                    </a>
-                    <a class="list-group-item" href="#"><span class="pull-right text-muted"></span>
-                        Scenario 4
-                    </a>
-                    <a class="list-group-item" href="#"><span class="pull-right text-muted"></span>
-                        Scenario 5
-                    </a>
+
                 </div>
             </div>
             <div class="col-sm-6 col-md-3 m-b">
                 <div class="list-group">
-                    <a class="list-group-item" href="#"><span class="pull-right text-muted"></span>
-                        Scenario 1
-                    </a>
-                    <a class="list-group-item" href="#"><span class="pull-right text-muted"></span>
-                        Scenario 2
-                    </a>
-                    <a class="list-group-item" href="#"><span class="pull-right text-muted"></span>
-                        Scenario 3
-                    </a>
-                    <a class="list-group-item" href="#"><span class="pull-right text-muted"></span>
-                        Scenario 4
-                    </a>
-                    <a class="list-group-item" href="#"><span class="pull-right text-muted"></span>
-                        Scenario 5
-                    </a>
+
                 </div>
             </div>
         </div>
